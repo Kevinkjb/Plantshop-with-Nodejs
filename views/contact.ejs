@@ -139,19 +139,19 @@
         <div class="contact-title text-center">
             <h2>Contact Form</h2>
         </div>
-        <form action="">
+        <form action="" id="contact-form">
             <div class="row">
                 <div class="col-lg-6">
-                    <label for="name" class="f-name">Name <span class="asterisk">*</span></label>
-                    <input class="form-control name-input" type="text" required>
+                    <label for="contact-name" class="f-name">Name <span class="asterisk">*</span></label>
+                    <input class="form-control name-input" type="text" id="contact-name" required>
                 </div>
                 <div class="col-lg-6">
-                    <label for="name" class="f-email">Email Address <span class="asterisk">*</span></label>
-                    <input class="form-control email-input" type="email" required>
+                    <label for="contact-email" class="f-email">Email Address <span class="asterisk">*</span></label>
+                    <input class="form-control email-input" type="email" id="contact-email" required>
                 </div>
                 <div class="col-lg-12">
-                    <label for="name" class="f-textarea">Your Message <span class="asterisk">*</span></label>
-                    <textarea class="form-control text-message" name="" id="" cols="30" rows="10" required></textarea>
+                    <label for="message" class="f-textarea">Your Message <span class="asterisk">*</span></label>
+                    <textarea class="form-control text-message" name="message" id="message" cols="30" rows="10" required></textarea>
                 </div>
                 <button class="contact-btn">SUBMIT</button>
 
@@ -366,6 +366,36 @@
 <script>
     const hamburger = document.querySelector('.hamburger');
     const navMenu = document.querySelector('.navbar-item');
+    const contactForm = document.querySelector('#contact-form')
+    let name = document.querySelector('#contact-name');
+    let email = document.querySelector('#contact-email');
+    let message = document.querySelector('#message');
+
+    contactForm.addEventListener('submit' , (e)=>{
+    e.preventDefault();
+
+    let formData = {
+        name: name.value,
+        email: email.value,
+        message: message.value
+    }
+    let xhr = new XMLHttpRequest()
+    xhr.open('POST', '/');
+    xhr.setRequestHeader('content-type', 'application/json');
+    xhr.onload = function(){
+        console.log(xhr.responseText)
+        if(xhr.responseText === 'Success'){
+            alert('Email sent')
+            name.value = ''
+            email.value = ''
+            message.value = ''
+        }else{
+            alert('Something went wrong!')
+        }
+    }
+    xhr.send(JSON.stringify(formData))
+})
+
 
     hamburger.addEventListener('click', () => {
     hamburger.classList.toggle("active");

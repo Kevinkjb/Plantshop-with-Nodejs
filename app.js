@@ -9,6 +9,7 @@ if (process.env.NODE_ENV !== 'production') {
   const flash = require('express-flash')
   const session = require('express-session')
   const methodOverride = require('method-override')
+  const nodemailer = require('nodemailer')
   
   
   
@@ -22,6 +23,7 @@ if (process.env.NODE_ENV !== 'production') {
   const users = []
   app.use(express.static(__dirname+'/public'));
   app.use('/public', express.static('public'));
+  app.use(express.json())
   app.set('view-engine', 'ejs')
   app.use(express.urlencoded({ extended: false }))
   app.use(flash())
@@ -53,6 +55,34 @@ if (process.env.NODE_ENV !== 'production') {
   })
   app.get('/contact',  (req, res) => {
     res.render('contact.ejs')
+  })
+
+  app.post('/', (req, res)=>{
+    const transporter = nodemailer.createTransport({
+      service: 'gmail',
+      host: 'smtp.gmail.com',
+      port: 465,
+      secure: true,
+      auth: {
+        user: 'tomfge04@gmail.com',
+        pass: 'wmadpcddvgplejjf'
+      }
+    })
+    const mailOptions = {
+      from: req.body.email,
+      to: 'tomfge04@gmail.com',
+      text: req.body.message
+    }
+
+    transporter.sendMail(mailOptions, (error, info)=>{
+      if(error){
+        console.log(error)
+        res.send('error')
+      }else{
+        console.log('Email sent:' + info.response)
+        res.send('Success')
+      }
+    })
   })
   app.get('/blog',  (req, res) => {
     res.render('blog.ejs')

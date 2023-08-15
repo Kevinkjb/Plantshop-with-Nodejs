@@ -241,12 +241,14 @@ a
 
 
 /*------------------------------- CONTACT FORM SECTION -------------------------------------------------*/
+
 .name-input, .email-input {
     width: 100%;
     padding: .8rem;
     height: 50px;
     border: 2px solid rgb(151, 149, 149);
 }
+
 .text-message{
     border: 2px solid rgb(151, 149, 149);
 }
