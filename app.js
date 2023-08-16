@@ -13,9 +13,6 @@
   const methodOverride = require('method-override')
   const nodemailer = require('nodemailer')
   require('dotenv').config()
-  const userName = process.env.MY_USER_NAME
-  const password = process.env.MY_PASSWORD
-  require('dotenv').config()
   
   const initializePassport = require('./passport-config')
   initializePassport(
@@ -62,6 +59,8 @@
   })
 
   app.post('/', (req, res)=>{
+    const userName = process.env.MY_USER_NAME
+    const mypassword = process.env.MY_PASSWORD
     const transporter = nodemailer.createTransport({
       service: 'gmail',
       host: 'smtp.gmail.com',
@@ -69,7 +68,7 @@
       secure: true,
       auth: {
         user: userName,
-        pass: password
+        pass: mypassword
       }
     })
     const mailOptions = {
