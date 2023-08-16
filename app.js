@@ -1,6 +1,8 @@
 if (process.env.NODE_ENV !== 'production') {
     require('dotenv').config()
   }
+
+
   
   const express = require('express')
   const app = express()
@@ -10,7 +12,9 @@ if (process.env.NODE_ENV !== 'production') {
   const session = require('express-session')
   const methodOverride = require('method-override')
   const nodemailer = require('nodemailer')
-  
+  require('dotenv').config()
+  const userName = process.env.MY_USER_NAME
+  const password = process.env.MY_PASSWORD
   
   
   const initializePassport = require('./passport-config')
@@ -64,13 +68,13 @@ if (process.env.NODE_ENV !== 'production') {
       port: 465,
       secure: true,
       auth: {
-        user: 'tomfge04@gmail.com',
-        pass: 'wmadpcddvgplejjf'
+        user: userName,
+        pass: password
       }
     })
     const mailOptions = {
       from: req.body.email,
-      to: 'tomfge04@gmail.com',
+      to: userName,
       text: req.body.message
     }
 
