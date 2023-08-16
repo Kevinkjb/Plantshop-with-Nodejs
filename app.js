@@ -1,6 +1,6 @@
-if (process.env.NODE_ENV !== 'production') {
-    require('dotenv').config()
-  }
+
+ 
+ 
 
 
   
@@ -15,7 +15,7 @@ if (process.env.NODE_ENV !== 'production') {
   require('dotenv').config()
   const userName = process.env.MY_USER_NAME
   const password = process.env.MY_PASSWORD
-  
+  require('dotenv').config()
   
   const initializePassport = require('./passport-config')
   initializePassport(
