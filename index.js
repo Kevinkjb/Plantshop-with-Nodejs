@@ -1,4 +1,4 @@
-const { name } = require("ejs");
+// const { name } = require("ejs");
 
 const hamburger = document.querySelector('.hamburger');
 const navMenu = document.querySelector('.navbar-item');

@@ -1,0 +1,127 @@
+/*----------------------------------------- FOOTER SECTION DESIGN -------------------------------------------*/
+/* FOOTER SECTION DESIGN */
+.footer-section{
+  display: flex;
+  align-items: center;
+  justify-content: center ;
+  background-color: #f8f8f8;
+  padding: 3rem;
+
+}
+.logo-img{
+  width: 10rem;
+  height: 5rem;
+  margin-bottom: 1rem;
+  margin-left: -1rem;
+}
+/* .footer-info{
+  width: 80%;
+  margin: 0 auto;
+} */
+
+.footer-detail{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin: 0 auto;
+  padding: 3rem;
+}
+.footer-list{
+  display: flex;
+  justify-content: flex-start;
+
+  flex-direction: column;
+  list-style-type: none;
+  padding: 0;
+  margin-top: 2.5rem;
+}
+.footer-detail h5{
+  font-size: 17px;
+  margin-bottom: 0;
+}
+.footer-detail p {
+  font-size: 13px;
+}
+.footer-list li{
+  padding: 8px 0;
+  font-size: 12px;
+}
+.footer-list li a{
+  text-decoration: none;
+  color: #000000;
+  padding-left: 0;
+}
+.footer-list li a:hover{
+  color: #009933;
+  transition: .3s ease;
+}
+.footer-list-icon{
+  display: flex;
+  padding-left: 0;
+  list-style: none;
+}
+.fa-brands{
+  padding: 0 10px;
+}
+.fa-brands:hover{
+  color: #009933;
+  transition: .3s ease;
+}
+.fa-twitter{
+  padding-left: 0;
+
+}
+.footer-list-icon li a{
+  padding: 0;
+}
+
+/* FOOTER RESPONSIVE SECTION */
+
+@media screen and (max-width: 1100px) {
+  .footer-detail{
+      padding: 1rem;
+  }
+  .footer-info{
+      width: 80%;
+      margin: 0 auto;
+      justify-content: center;
+  }
+}
+@media screen and (max-width: 765px) {
+  .footer-detail{
+      padding: 1rem;
+  }
+  .footer-info{
+
+      display: flex;
+      flex-direction: column;
+
+      text-align: center;
+      justify-content: center;
+      align-items: center;
+  }
+  .footer-info p{
+      text-align: center;
+  }
+  .footer-list{
+      text-align: center;
+  }
+  .footer-detail h5{
+      text-align: center;
+  }
+}
+@media screen and (max-width: 576px) {
+  .logo-img{
+      width: 10rem;
+      height: 5rem;
+      text-align: center;
+  }
+}
+@media screen and (max-width: 390px) {
+  .logo-img{
+      width: 10rem;
+      height: 5rem;
+      text-align: center;
+  }
+}
